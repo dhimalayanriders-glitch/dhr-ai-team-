@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mindra × DHR - V6.1 Working</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DHR AI TEAM - V6.2</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{background:#070707;color:#e8e8e8;font-family:-apple-system,Inter,sans-serif;overflow-x:hidden}
 .top{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);border-bottom:1px solid #1e1e1e;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800} .btn{border:1px solid #222;background:#111;color:#fff;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:600;cursor:pointer}
+.logo{font-weight:900;letter-spacing:-0.02em;font-size:14px} .btn{border:1px solid #222;background:#111;color:#fff;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:600;cursor:pointer}
 .btn.green{background:#22c55e;color:#000;border-color:#22c55e} .btn.white{background:#fff;color:#000}
 .hero{padding:24px 12px;text-align:center} .modes{display:flex;gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap} .mode{background:#151515;border:1px solid #222;padding:8px 12px;border-radius:10px;font-size:11px}
 .dashboard{display:none;min-height:100vh} .dashboard.on{display:flex}
@@ -20,12 +20,11 @@
 .input{width:100%;background:#0a0a0a;border:1px solid #222;border-radius:8px;padding:8px;color:#fff;font-size:12px;margin-top:6px}
 .fab{position:fixed;top:10px;right:10px;z-index:60;display:none} .fab.show{display:block}
 </style></head><body>
-<div class="top"><div class="logo">MINDRA × DHR</div><div style="display:flex;gap:6px"><button class="btn" id="homeBtn" onclick="showHome()" style="display:none">← Home</button><button class="btn green" id="dashBtn" onclick="showDash()">Dashboard →</button></div></div>
+<div class="top"><div class="logo">DHR AI TEAM</div><div style="display:flex;gap:6px"><button class="btn" id="homeBtn" onclick="showHome()" style="display:none">← Home</button><button class="btn green" id="dashBtn" onclick="showDash()">Dashboard →</button></div></div>
 
-<div id="home"><div class="hero"><h2 style="font-size:24px">Mindra</h2><p style="color:#888;font-size:11px;margin-top:6px">AI Team for D Himalayan Riders — V6.1 Working</p><div class="modes"><div class="mode">🏔 Trek Ops</div><div class="mode">📥 Inbox 23</div><div class="mode">💰 Finance</div><div class="mode">🤖 3 Live</div></div><br><button class="btn white" onclick="showDash()" style="padding:10px 18px;font-size:13px">🚀 Launch Dashboard (Now Works!)</button></div></div>
+<div id="home"><div class="hero"><h2 style="font-size:26px;font-weight:900;letter-spacing:-0.03em">DHR AI TEAM</h2><p style="color:#888;font-size:11px;margin-top:6px">Autonomous AI Team for D Himalayan Riders — V6.2</p><div class="modes"><div class="mode">🏔 Trek Ops</div><div class="mode">📥 Inbox 23</div><div class="mode">💰 Finance</div><div class="mode">🤖 3 Live</div></div><br><button class="btn white" onclick="showDash()" style="padding:10px 18px;font-size:13px">🚀 Launch Dashboard</button></div></div>
 
 <div class="dashboard" id="dash"><div class="main">
-<!-- DEFAULT STATS VIEW -->
 <div id="pane-stats" class="content-pane on">
 <div class="stats"><div class="card"><div class="label">Active Tours</div><div class="value">12</div><div class="sub">+2 this week</div></div><div class="card"><div class="label">Pending</div><div class="value yellow">3</div><div class="sub">Dechan review</div></div><div class="card"><div class="label">Revenue MTD</div><div class="value green">$24.7k</div><div class="sub">↑ 18%</div></div></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><div class="card"><div class="label">Today's Actions</div><div class="row"><span>09:14 Replied Sarah M.</span><span class="badge">sent</span></div><div class="row"><span>09:42 3 IG posts EBC</span><span class="badge">Queued</span></div><div class="row"><span>10:05 Invoice #1847</span><span class="badge">sent</span></div><div class="row"><span>10:31 Follow-up 12 leads</span><span class="badge">sent</span></div></div><div class="card"><div class="label">Orchestration</div><div class="row"><span>Dechan</span><span><span class="dot"></span> Full</span></div><div class="row"><span>Sonam</span><span><span class="dot"></span> Full</span></div><div class="row"><span>Auto-Reply</span><span>ON</span></div><div class="row"><span>Threshold</span><span>>$500 Dechan</span></div><div style="background:#1a1a1a;padding:6px;border-radius:6px;font-size:10px;color:#888;margin-top:8px">3 waiting in Approval Queue</div></div></div>
@@ -56,17 +55,17 @@
 
 <div class="right" id="rightMenu">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b style="font-size:12px">Overview</b><button class="btn" style="padding:4px 8px;font-size:10px" onclick="toggleMenu()">≡ Hide</button></div>
-<div class="section"><div class="stitle" onclick="toggleSec(this)">Operations ▼</div><div class="secBody">
+<div class="section"><div class="stitle">Operations ▼</div><div class="secBody">
 <div class="item" onclick="openPane('inbox',this)"><span>📥 Inbox</span><span class="count">23 new</span></div>
 <div class="item" onclick="openPane('clients',this)"><span>👥 Clients</span></div>
 <div class="item" onclick="openPane('calendar',this)"><span>🗓 Content Calendar</span></div>
 </div></div>
-<div class="section"><div class="stitle" onclick="toggleSec(this)">Business ▼</div><div class="secBody">
+<div class="section"><div class="stitle">Business ▼</div><div class="secBody">
 <div class="item" onclick="openPane('finance',this)"><span>💰 Finance</span></div>
 <div class="item" onclick="openPane('automations',this)"><span>⚙️ Automations</span></div>
 <div class="item" onclick="openPane('tours',this)"><span>🏔 Tours</span></div>
 </div></div>
-<div class="section"><div class="stitle" onclick="toggleSec(this)">Live Agents • 3 ▼</div><div class="secBody">
+<div class="section"><div class="stitle">Live Agents • 3 ▼</div><div class="secBody">
 <div class="item" onclick="openPane('chat',this)"><span>💬 Manager Chat</span></div>
 <div class="item" onclick="openPane('whatsapp',this)"><span>📱 WhatsApp</span><span class="badge">+61</span></div>
 <div class="item" onclick="openPane('approval',this)"><span>✅ Approval Queue</span><span class="count" style="background:#ef4444;color:#fff">3</span></div>
@@ -82,14 +81,6 @@
 function showDash(){document.getElementById('home').style.display='none';document.getElementById('dash').classList.add('on');document.getElementById('dashBtn').style.display='none';document.getElementById('homeBtn').style.display='block';}
 function showHome(){document.getElementById('home').style.display='block';document.getElementById('dash').classList.remove('on');document.getElementById('dashBtn').style.display='block';document.getElementById('homeBtn').style.display='none';document.getElementById('fab').classList.remove('show');}
 function toggleMenu(){const m=document.getElementById('rightMenu');const fab=document.getElementById('fab');if(m.classList.contains('hide')){m.classList.remove('hide');fab.classList.remove('show');}else{m.classList.add('hide');fab.classList.add('show');}}
-function toggleSec(el){const body=el.nextElementSibling;body.style.display=body.style.display==='none'?'block':'none';}
-function openPane(id,el){
- document.querySelectorAll('.content-pane').forEach(p=>p.classList.remove('on'));
- const target=document.getElementById('pane-'+id);
- if(target) target.classList.add('on');
- document.querySelectorAll('.right .item').forEach(i=>i.classList.remove('active'));
- if(el) el.classList.add('active');
- if(window.innerWidth<700){document.getElementById('rightMenu').classList.add('hide');document.getElementById('fab').classList.add('show');}
-}
+function openPane(id,el){document.querySelectorAll('.content-pane').forEach(p=>p.classList.remove('on'));const t=document.getElementById('pane-'+id);if(t) t.classList.add('on');document.querySelectorAll('.right .item').forEach(i=>i.classList.remove('active'));if(el) el.classList.add('active');if(window.innerWidth<700){document.getElementById('rightMenu').classList.add('hide');document.getElementById('fab').classList.add('show');}}
 </script>
 </body></html>
