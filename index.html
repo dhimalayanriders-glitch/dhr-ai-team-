@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DHR Mindra - Rider Mind AI</title>
+<style>
+body{background:#0f172a;color:white;font-family:sans-serif;margin:0;padding:0}
+.header{padding:20px;text-align:center;background:#1e293b}
+.header h1{margin:0;font-size:22px}
+.header p{color:#94a3b8;font-size:14px}
+.chat{padding:20px;height:60vh;overflow-y:auto}
+.msg{margin:10px 0;padding:12px 16px;border-radius:18px;max-width:80%}
+.user{background:#3b82f6;margin-left:auto}
+.ai{background:#1e293b}
+.input-area{position:fixed;bottom:0;width:100%;background:#1e293b;padding:12px;display:flex;gap:10px;box-sizing:border-box}
+input{flex:1;padding:12px;border-radius:25px;border:none;outline:none}
+button{padding:12px 20px;border-radius:25px;border:none;background:#3b82f6;color:white;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🏔️ DHR Mindra</h1>
+<p>Your Himalayan Rider Mind Companion</p>
+</div>
+<div class="chat" id="chat">
+<div class="msg ai">Hi! I'm your DHR Mindra. Feeling altitude stress or route fear? Tell me.</div>
+</div>
+<div class="input-area">
+<input id="input" placeholder="How are you feeling?">
+<button onclick="send()">Send</button>
+</div>
+<script>
+const replies=[
+"Take a deep breath - 4 sec in, 4 hold, 4 out. The mountains wait for you.",
+"Altitude heavy? Drink water, sit 10 mins. Even yaks go slow at 18000 ft.",
+"Route anxiety is normal. Tell me your route - I'll check tricky patches.",
+"You are doing amazing. Every rider felt this before Khardung La.",
+"What is 1 thing worrying you RIGHT NOW? Let's solve just that."
+];
+function send(){
+let i=document.getElementById('input'); if(!i.value) return;
+let c=document.getElementById('chat');
+c.innerHTML+=`<div class='msg user'>${i.value}</div>`;
+setTimeout(()=>{
+let r=replies[Math.floor(Math.random()*replies.length)];
+c.innerHTML+=`<div class='msg ai'>${r}</div>`;
+c.scrollTop=c.scrollHeight;
+},800);
+i.value=''; c.scrollTop=c.scrollHeight;
+}
+document.getElementById('input').addEventListener('keypress',e=>{ if(e.key==='Enter') send() });
+</script>
+</body>
+</html>
