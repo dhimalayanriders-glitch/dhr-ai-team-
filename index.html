@@ -1,86 +1,81 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DHR AI TEAM - V6.2</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>DHR AI TEAM V8.2 - Logo + Approval + WhatsApp</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#070707;color:#e8e8e8;font-family:-apple-system,Inter,sans-serif;overflow-x:hidden}
-.top{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);border-bottom:1px solid #1e1e1e;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;letter-spacing:-0.02em;font-size:14px} .btn{border:1px solid #222;background:#111;color:#fff;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:600;cursor:pointer}
-.btn.green{background:#22c55e;color:#000;border-color:#22c55e} .btn.white{background:#fff;color:#000}
-.hero{padding:24px 12px;text-align:center} .modes{display:flex;gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap} .mode{background:#151515;border:1px solid #222;padding:8px 12px;border-radius:10px;font-size:11px}
-.dashboard{display:none;min-height:100vh} .dashboard.on{display:flex}
-.main{flex:1;padding:10px;overflow:auto} .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-@media(max-width:700px){.stats{grid-template-columns:1fr 1fr 1fr} .dashboard.on{flex-direction:column} .right{width:100%!important}}
-.card{background:#141414;border:1px solid #222;border-radius:12px;padding:12px} .label{font-size:9px;color:#666;letter-spacing:.08em;text-transform:uppercase} .value{font-size:20px;font-weight:800;margin-top:4px} .sub{font-size:10px;color:#555;margin-top:2px} .green{color:#22c55e} .yellow{color:#eab308}
-.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1d1d1d;font-size:12px} .badge{font-size:9px;background:#222;padding:2px 6px;border-radius:99px;color:#aaa}
-.right{width:280px;background:#0f0f0f;border-left:1px solid #222;padding:10px;overflow:auto;transition:.25s} .right.hide{display:none}
-.section{margin-bottom:10px} .stitle{font-size:10px;color:#777;font-weight:700;display:flex;justify-content:space-between;cursor:pointer;padding:6px 4px;text-transform:uppercase}
-.item{display:flex;justify-content:space-between;align-items:center;padding:8px 8px;border-radius:8px;font-size:12px;cursor:pointer} .item:hover{background:#1a1a1a} .item.active{background:#22c55e;color:#000;font-weight:700}
-.count{background:#facc15;color:#000;font-size:9px;font-weight:800;padding:2px 6px;border-radius:99px} .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block}
-.content-pane{display:none} .content-pane.on{display:block}
-.viewer{background:#111;border:1px solid #222;border-radius:10px;padding:12px;margin-top:10px;min-height:300px}
-.input{width:100%;background:#0a0a0a;border:1px solid #222;border-radius:8px;padding:8px;color:#fff;font-size:12px;margin-top:6px}
-.fab{position:fixed;top:10px;right:10px;z-index:60;display:none} .fab.show{display:block}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#070707;color:#e8e8e8;font-family:-apple-system,Inter,sans-serif}
+.top{position:sticky;top:0;z-index:60;background:#0a0a0a;border-bottom:1px solid #1e1e1e;padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
+.logo-wrap{display:flex;align-items:center;gap:8px} .logo-img{width:36px;height:36px;border-radius:50%;border:2px solid #c9a227;object-fit:cover;background:#111}
+.btn{border:1px solid #222;background:#111;color:#fff;padding:7px 12px;border-radius:99px;font-size:11px;font-weight:600;cursor:pointer} .btn.green{background:#22c55e;color:#000;border-color:#22c55e} .btn.white{background:#fff;color:#000}
+.card{background:#141414;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:10px} .label{font-size:9px;color:#666;letter-spacing:.08em;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #1d1d1d;font-size:11px}
+.agent{background:#111;border:1px solid #222;border-radius:10px;padding:10px;margin-bottom:8px}
+.viewer{background:#111;border:1px solid #222;border-radius:10px;padding:12px;margin-top:8px}
+.approval-item{background:#1a1a0f;border:1px solid #facc15;border-radius:8px;padding:10px;margin:8px 0}
+.switch{width:36px;height:20px;background:#22c55e;border-radius:99px;position:relative;display:inline-block} .switch::after{content:'';width:16px;height:16px;background:#fff;border-radius:50%;position:absolute;top:2px;left:18px}
+.grid8{display:grid;grid-template-columns:1fr 1fr;gap:8px} @media(min-width:700px){.grid8{grid-template-columns:repeat(4,1fr)}}
 </style></head><body>
-<div class="top"><div class="logo">DHR AI TEAM</div><div style="display:flex;gap:6px"><button class="btn" id="homeBtn" onclick="showHome()" style="display:none">← Home</button><button class="btn green" id="dashBtn" onclick="showDash()">Dashboard →</button></div></div>
-
-<div id="home"><div class="hero"><h2 style="font-size:26px;font-weight:900;letter-spacing:-0.03em">DHR AI TEAM</h2><p style="color:#888;font-size:11px;margin-top:6px">Autonomous AI Team for D Himalayan Riders — V6.2</p><div class="modes"><div class="mode">🏔 Trek Ops</div><div class="mode">📥 Inbox 23</div><div class="mode">💰 Finance</div><div class="mode">🤖 3 Live</div></div><br><button class="btn white" onclick="showDash()" style="padding:10px 18px;font-size:13px">🚀 Launch Dashboard</button></div></div>
-
-<div class="dashboard" id="dash"><div class="main">
-<div id="pane-stats" class="content-pane on">
-<div class="stats"><div class="card"><div class="label">Active Tours</div><div class="value">12</div><div class="sub">+2 this week</div></div><div class="card"><div class="label">Pending</div><div class="value yellow">3</div><div class="sub">Dechan review</div></div><div class="card"><div class="label">Revenue MTD</div><div class="value green">$24.7k</div><div class="sub">↑ 18%</div></div></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><div class="card"><div class="label">Today's Actions</div><div class="row"><span>09:14 Replied Sarah M.</span><span class="badge">sent</span></div><div class="row"><span>09:42 3 IG posts EBC</span><span class="badge">Queued</span></div><div class="row"><span>10:05 Invoice #1847</span><span class="badge">sent</span></div><div class="row"><span>10:31 Follow-up 12 leads</span><span class="badge">sent</span></div></div><div class="card"><div class="label">Orchestration</div><div class="row"><span>Dechan</span><span><span class="dot"></span> Full</span></div><div class="row"><span>Sonam</span><span><span class="dot"></span> Full</span></div><div class="row"><span>Auto-Reply</span><span>ON</span></div><div class="row"><span>Threshold</span><span>>$500 Dechan</span></div><div style="background:#1a1a1a;padding:6px;border-radius:6px;font-size:10px;color:#888;margin-top:8px">3 waiting in Approval Queue</div></div></div>
+<div class="top">
+<div class="logo-wrap"><img src="D_Himalayan_Riders_Logo_Circle_NoBG_copy.png" class="logo-img" alt="DHR Logo"><div><b>DHR AI TEAM V8.2</b><br><span style="font-size:9px;color:#888">Final • Logo • Approval • WhatsApp</span></div></div>
+<div><span style="font-size:9px;background:#22c55e;color:#000;padding:3px 7px;border-radius:99px;font-weight:700">● 0452337260</span></div>
 </div>
+<div style="padding:10px">
 
-<div id="pane-inbox" class="content-pane"><div class="card"><div class="label">📥 Inbox — 23 new</div><div class="viewer">
-<div class="row"><span><b>Sarah M.</b> — Langtang inquiry</span><span class="badge">WhatsApp</span></div><div style="font-size:11px;color:#888;padding:6px">Hi! Cost for Langtang 10 days?</div><input class="input" placeholder="AI draft reply..."><button class="btn green" style="margin-top:6px" onclick="alert('Sent! (demo)')">Auto-Reply Send</button>
-<div class="row" style="margin-top:10px"><span><b>John T.</b> — EBC booking</span><span class="badge">Email</span></div><div class="row"><span><b>Trek Co.</b> — Invoice paid</span><span class="badge">Finance</span></div>
-</div></div></div>
-
-<div id="pane-clients" class="content-pane"><div class="card"><div class="label">👥 Clients — 142 total</div><div class="viewer"><div class="row"><span>Sarah Mitchell</span><span>Langtang • Hot</span></div><div class="row"><span>John Taylor</span><span>EBC • Confirmed</span></div><div class="row"><span>Ama Dablam Group (8)</span><span>Nov 12 • Paid</span></div><input class="input" placeholder="Search clients..."></div></div></div>
-
-<div id="pane-calendar" class="content-pane"><div class="card"><div class="label">🗓 Content Calendar</div><div class="viewer"><div class="row"><span>Today — EBC Reel</span><span class="badge">Queued 6pm</span></div><div class="row"><span>Tomorrow — Langtang Carousel</span><span class="badge">Draft</span></div><button class="btn green" style="margin-top:10px" onclick="alert('Generated 3 posts!')">+ Generate AI Posts</button></div></div></div>
-
-<div id="pane-finance" class="content-pane"><div class="card"><div class="label">💰 Finance</div><div class="viewer"><div class="row"><span>Revenue MTD</span><span class="green"><b>$24.7k</b></span></div><div class="row"><span>Pending Invoices</span><span>3 • $2.1k</span></div><div class="row"><span>Invoice #1847</span><span class="badge">Sent • $890</span></div><button class="btn green" style="margin-top:10px" onclick="alert('Invoice created!')">+ New Invoice</button></div></div></div>
-
-<div id="pane-automations" class="content-pane"><div class="card"><div class="label">⚙️ Automations</div><div class="viewer"><div class="row"><span>WhatsApp Auto-Reply</span><span style="color:#22c55e">● ON</span></div><div class="row"><span>Email Auto-Reply</span><span style="color:#22c55e">● ON</span></div><div class="row"><span>Instagram Posting</span><span style="color:#22c55e">● ON</span></div><button class="btn" style="margin-top:10px" onclick="alert('Settings saved!')">Save</button></div></div></div>
-
-<div id="pane-tours" class="content-pane"><div class="card"><div class="label">🏔 Tours</div><div class="viewer"><div class="row"><span>Everest Base Camp — 14 days</span><span class="badge">12 active</span></div><div class="row"><span>Langtang Valley — 10 days</span><span class="badge">3 active</span></div><div class="row"><span>Annapurna Circuit — 16 days</span><span class="badge">New</span></div></div></div></div>
-
-<div id="pane-chat" class="content-pane"><div class="card"><div class="label">💬 Manager Chat</div><div class="viewer" style="height:400px;display:flex;flex-direction:column"><div style="flex:1;overflow:auto;font-size:12px"><div style="background:#1a1a1a;padding:8px;border-radius:8px;margin-bottom:6px"><b>Dechan:</b> Check Langtang lead</div><div style="background:#22c55e;color:#000;padding:8px;border-radius:8px;margin-bottom:6px"><b>Sonam:</b> Done, replied ✅</div></div><input class="input" placeholder="Type to Dechan/Sonam..." id="chatInput"><button class="btn green" style="margin-top:6px" onclick="let v=document.getElementById('chatInput').value;if(v) alert('Sent: '+v)">Send</button></div></div></div>
-
-<div id="pane-whatsapp" class="content-pane"><div class="card"><div class="label">📱 WhatsApp — +61 0452 337 260</div><div class="viewer"><div class="row"><span>Sarah M. • Langtang?</span><span>09:14</span></div><div class="row"><span>Trek group • Payment</span><span>08:30</span></div><button class="btn green" style="margin-top:10px" onclick="window.open('https://wa.me/61452337260','_blank')">Open WhatsApp</button></div></div></div>
-
-<div id="pane-approval" class="content-pane"><div class="card"><div class="label">✅ Approval Queue — 3 items</div><div class="viewer"><div class="row"><span>Email to Sarah — $1200 quote</span><button class="btn green" style="padding:3px 8px;font-size:10px" onclick="alert('Approved!')">Approve</button></div><div class="row"><span>Instagram post — EBC</span><button class="btn green" style="padding:3px 8px;font-size:10px" onclick="alert('Approved!')">Approve</button></div><div class="row"><span>Refund $600 — John T.</span><button class="btn" style="padding:3px 8px;font-size:10px;background:#ef4444;color:#fff" onclick="alert('Needs Dechan!')">Needs Dechan</button></div></div></div></div>
-
+<div class="card" style="border-color:#facc15;background:#1a1a0f">
+<div class="label" style="color:#facc15">⚠️ APPROVAL REQUIRED BEFORE SOCIAL POST — Your Rule ON</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+<div><b style="font-size:12px">Content AI → Will NEVER post without Sonam ✅</b><br><span style="font-size:10px;color:#888">All IG/FB posts wait in Approval Queue</span></div>
+<div class="switch"></div>
 </div>
-
-<div class="right" id="rightMenu">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b style="font-size:12px">Overview</b><button class="btn" style="padding:4px 8px;font-size:10px" onclick="toggleMenu()">≡ Hide</button></div>
-<div class="section"><div class="stitle">Operations ▼</div><div class="secBody">
-<div class="item" onclick="openPane('inbox',this)"><span>📥 Inbox</span><span class="count">23 new</span></div>
-<div class="item" onclick="openPane('clients',this)"><span>👥 Clients</span></div>
-<div class="item" onclick="openPane('calendar',this)"><span>🗓 Content Calendar</span></div>
-</div></div>
-<div class="section"><div class="stitle">Business ▼</div><div class="secBody">
-<div class="item" onclick="openPane('finance',this)"><span>💰 Finance</span></div>
-<div class="item" onclick="openPane('automations',this)"><span>⚙️ Automations</span></div>
-<div class="item" onclick="openPane('tours',this)"><span>🏔 Tours</span></div>
-</div></div>
-<div class="section"><div class="stitle">Live Agents • 3 ▼</div><div class="secBody">
-<div class="item" onclick="openPane('chat',this)"><span>💬 Manager Chat</span></div>
-<div class="item" onclick="openPane('whatsapp',this)"><span>📱 WhatsApp</span><span class="badge">+61</span></div>
-<div class="item" onclick="openPane('approval',this)"><span>✅ Approval Queue</span><span class="count" style="background:#ef4444;color:#fff">3</span></div>
-</div></div>
-<div class="card" style="margin-top:8px"><div class="label">Status</div><div class="row"><span>Autonomous</span><span style="color:#22c55e">● ON</span></div><div class="row"><span>Internet</span><span>● LIVE</span></div></div>
-<div style="margin-top:8px"><button class="btn" style="width:100%" onclick="openPane('stats',null)">← Back to Stats</button></div>
+<div class="viewer">
+<div class="approval-item">
+<div style="display:flex;justify-content:space-between"><b style="font-size:12px">📱 IG Reel — EBC Sunrise 5,545m</b><span style="font-size:9px;background:#facc15;color:#000;padding:2px 6px;border-radius:99px;font-weight:700">WAITING APPROVAL</span></div>
+<div style="font-size:11px;color:#888;margin-top:4px">Content AI searched #EBC2026 trending, made caption + hashtags. Waiting your approval.</div>
+<div style="display:flex;gap:6px;margin-top:8px"><button class="btn green" onclick="alert('Approved! Posted to @dhimalayanriders')">✅ Approve & Post</button><button class="btn white" onclick="alert('Edit mode')">✏️ Edit</button></div>
+</div>
 </div>
 </div>
 
-<button class="btn white fab" id="fab" onclick="toggleMenu()">≡ Show Menu</button>
+<div class="card" style="border-color:#22c55e;background:#0f1a0f">
+<div class="label" style="color:#22c55e">📱 DAILY 9AM WHATSAPP REPORT to 0452337260 — ACTIVE</div>
+<div class="viewer" style="font-family:monospace;font-size:11px;white-space:pre-wrap;background:#0a0a0a" id="report">📊 DHR AI TEAM — Daily Report 9:00 AM
+To: Sonam — 0452337260
+👑 Head Manager:
 
-<script>
-function showDash(){document.getElementById('home').style.display='none';document.getElementById('dash').classList.add('on');document.getElementById('dashBtn').style.display='none';document.getElementById('homeBtn').style.display='block';}
-function showHome(){document.getElementById('home').style.display='block';document.getElementById('dash').classList.remove('on');document.getElementById('dashBtn').style.display='block';document.getElementById('homeBtn').style.display='none';document.getElementById('fab').classList.remove('show');}
-function toggleMenu(){const m=document.getElementById('rightMenu');const fab=document.getElementById('fab');if(m.classList.contains('hide')){m.classList.remove('hide');fab.classList.remove('show');}else{m.classList.add('hide');fab.classList.add('show');}}
-function openPane(id,el){document.querySelectorAll('.content-pane').forEach(p=>p.classList.remove('on'));const t=document.getElementById('pane-'+id);if(t) t.classList.add('on');document.querySelectorAll('.right .item').forEach(i=>i.classList.remove('active'));if(el) el.classList.add('active');if(window.innerWidth<700){document.getElementById('rightMenu').classList.add('hide');document.getElementById('fab').classList.add('show');}}
-</script>
+• 3 leads → 2 bookings $4,200
+• Revenue MTD $24.7k ↑ 18%
+• 23 msgs, 21 auto-replied by Inbox AI (Internet Search ON)
+• 2 posts waiting approval (Content AI)
+• Finance: Invoice #1847 $890 paid
+• Booking AI: John EBC confirmed, hotels/flights booked via internet search
+• Trek Ops AI: 12 tours active, itinerary auto-built
+• Safety AI: All clients O2 normal, weather clear (internet search)
+• DevOps AI: App 100%, fixed 0 errors (self-healing)
+• Head Manager: All 10 agents distributed tasks
+
+Open: https://dhimalayanriders-glitch.github.io/dhr-ai-team-/
+</div>
+<div style="display:flex;gap:6px;margin-top:8px">
+<button class="btn green" onclick="const t=document.getElementById('report').innerText; window.open('https://wa.me/61452337260?text='+encodeURIComponent(t),'_blank')">📱 Send Test to 0452337260 Now</button>
+<button class="btn white" onclick="alert('Daily 9am automation set for 0452337260 — Head Manager will send every day AEST')">⏰ Set Daily 9AM Auto</button>
+</div>
+</div>
+
+<div class="card">
+<div class="label">10 AGENTS — ALL INTERNET SEARCH + 24HR WATCH + LEAD→BOOKING</div>
+<div class="grid8" style="margin-top:8px">
+<div class="agent"><div style="font-weight:700;font-size:11px">1. 📥 Inbox AI <span style="color:#22c55e;float:right;font-size:9px">● LIVE</span></div><div style="font-size:9px;color:#888;margin-top:4px">24hr Gmail/WA watch, internet search, instant reply</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">2. 📱 Content AI</div><div style="font-size:9px;color:#facc15">⚠️ Approval Required</div><div style="font-size:9px;color:#888">24hr social watch</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">3. 💰 Finance</div><div style="font-size:9px;color:#888">Internet forex, auto invoice</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">4. ✅ Booking AI</div><div style="font-size:9px;color:#888">Searches hotels/flights internet</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">5. 🎯 Lead AI</div><div style="font-size:9px;color:#888">24hr website watch</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">6. 🏔 Trek Ops — Itinerary Builder</div><div style="font-size:9px;color:#22c55e">Auto-builds itinerary itself</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">7. ⭐ Review AI</div><div style="font-size:9px;color:#888">Google/TripAdvisor watch</div></div>
+<div class="agent"><div style="font-weight:700;font-size:11px">8. 🛡 Safety AI</div><div style="font-size:9px;color:#888">Weather internet 24hr</div></div>
+<div class="agent" style="border-color:#60a5fa;background:#0f131f"><div style="font-weight:700;font-size:11px">9. 🔧 DevOps AI</div><div style="font-size:9px;color:#60a5fa">App Guardian — Auto-fix errors in seconds</div></div>
+<div class="agent" style="border-color:#facc15;background:#1a1a0f"><div style="font-weight:700;font-size:11px">10. 👑 Head Manager AI — BOSS</div><div style="font-size:9px;color:#facc15">Distributes tasks + Daily 9am report to 0452337260</div></div>
+</div>
+</div>
+
+<div style="text-align:center;padding:10px;font-size:10px;color:#555">D'HIMALAYAN RIDERS • RIDE BEYOND LIMITS • DHR AI TEAM V8.2 • Logo embedded</div>
+
+</div>
 </body></html>
